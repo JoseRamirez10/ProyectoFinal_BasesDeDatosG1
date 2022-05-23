@@ -9,6 +9,9 @@
     <link rel="preload" href="src/style.css" as="style">
     <link rel="stylesheet" href="src/style.css">
 </head>
+<?php
+    include "src/php/conexion.php" // Conexion a la base de datos
+?>
 <body>
     <header class="header">
         <div class="contenedor">
@@ -19,7 +22,7 @@
                 <nav class="navegacion sombras">
                     <a href="orden.html" class="nav-enlace">Ordenar</a>
                     <a href="nosotros.html" class="nav-enlace">Nosotros</a>
-                    <a href="acceso.html" class="nav-enlace">
+                    <a href="acceso.php" class="nav-enlace">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-key" width="40" height="40" viewBox="0 0 24 20" stroke-width="2.5" stroke="#ffbf00" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                             <circle cx="8" cy="15" r="4" />
@@ -37,14 +40,22 @@
         </div>
     </header>
 
-    <div class="contendor">
-        <div class="empleado">
+    <form class="contendor" id="empleado">
+        <div class="empleado empleado-form">
             <label>Empleado</label>
-            <input class="perfil-empleado" list="empleados" name="empleados" disabled>
+            <input class="perfil-empleado" list="empleados" name="empleados">
             <datalist id="empleados" class="datalist">
+            <?php
+                // Consulta de la base de datos para devolver un datalist de los paises que se pueden elegir
+                $psql = pg_query($conexion, "SELECT nombre FROM empleado");
+                while($nombre = pg_fetch_row($psql)){
+                    echo "<option value='$nombre[0]'/>";
+                }
+            ?>
             </datalist>
         </div>
-    </div>
+        <input class="submit" type="submit" name="Buscar">
+    </form>
 
     <form class="contenedor padding" id="form-perfil">
         <fieldset>
@@ -84,23 +95,23 @@
                     <div class="direccion">
                         <div class="input-direccion">
                             <label>Estado</label>
-                            <input class="perfil-direccion" type="text" name="direccion" disabled>
+                            <input class="perfil-estado" type="text" name="direccion" disabled>
                         </div>
                         <div class="input-direccion">
                             <label>Código Postal</label>
-                            <input class="perfil-direccion" type="text" name="direccion" disabled>
+                            <input class="perfil-cp" type="text" name="direccion" disabled>
                         </div>
                         <div class="input-direccion">
                             <label>Colonia</label>
-                            <input class="perfil-direccion" type="text" name="direccion" disabled>
+                            <input class="perfil-colonia" type="text" name="direccion" disabled>
                         </div>
                         <div class="input-direccion">
                             <label>Calle</label>
-                            <input class="perfil-direccion" type="text" name="direccion" disabled>
+                            <input class="perfil-calle" type="text" name="direccion" disabled>
                         </div>
                         <div class="input-direccion">
                             <label>Número</label>
-                            <input class="perfil-direccion" type="text" name="direccion" disabled>
+                            <input class="perfil-numero" type="text" name="direccion" disabled>
                         </div>
                     </div>
                 </fieldset>
@@ -122,6 +133,11 @@
             <p class="texto-centro texto-blanco">Todos los Derechos Reservados &copy;</p>
         </div>
     </footer>
-
 </body>
+<script src="src/js/empleado.js"></script>             
+<script 
+    src="https://code.jquery.com/jquery-3.6.0.js" 
+    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" 
+    crossorigin="anonymous">
+</script>
 </html>

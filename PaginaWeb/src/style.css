@@ -150,6 +150,15 @@ img{
     padding: 2rem;
 }
 /* Acceso */
+.empleado-form{
+    margin-bottom: 1rem;
+}
+
+.submit{
+    display: block;
+    margin: 0 auto;
+}
+
 .empleado{
     margin-top: 2rem;
     display: flex;
