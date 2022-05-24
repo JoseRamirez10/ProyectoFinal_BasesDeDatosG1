@@ -39,6 +39,10 @@ h1, h2, h3{
     text-align: center;
 }
 
+.texto-justificado{
+    text-align: justify;
+}
+
 .texto-derecha{
     text-align: right;
 }
@@ -125,7 +129,7 @@ img{
 }
 
 /* Index */
-.menu{
+.fondo-menu{
     margin-top: 2rem;
     margin-bottom: 2rem;
     background-image: url(../img/menu.jpg);
@@ -149,6 +153,68 @@ img{
 .menu-texto{
     padding: 2rem;
 }
+
+/* Orden */
+
+.fondo-titulo{
+    background-color: var(--negro);
+    border: 10px groove black;
+    border-radius: 1rem;
+    margin-top: 2rem;
+}
+@media(min-width: 768px){
+    .orden{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .orden-seccion{
+        column-gap: 2rem;
+        margin-right: 3rem;
+    }
+    
+    .orden-seccion:nth-child(2){
+        margin-right: 0.5rem;
+    }
+}
+
+.orden-seleccion{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 3.5rem;
+    align-items: center;
+    column-gap: 3rem;
+}
+
+/* Cuenta */
+.oculto{
+    display: none !important;
+}
+
+.cuenta{
+    margin: 0 auto;
+    margin-bottom: 2rem;
+}
+
+.platillo-confirmacion{
+    position: fixed;
+    background-color: green;
+    width: 100%;
+    height: 10%;
+    top: 0;
+    display: grid;
+    place-items: center;
+}
+
+.platillo-eliminado{
+    position: fixed;
+    background-color: red;
+    width: 100%;
+    height: 10%;
+    top: 0;
+    display: grid;
+    place-items: center;
+}
+
 /* Acceso */
 .empleado-form{
     margin-bottom: 1rem;

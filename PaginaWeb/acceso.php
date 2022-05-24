@@ -20,7 +20,7 @@
                     <h1 class="texto-centro sombras">Proyecto<span class="negritas">BD</span></h1>
                 </a>
                 <nav class="navegacion sombras">
-                    <a href="orden.html" class="nav-enlace">Ordenar</a>
+                    <a href="orden.php" class="nav-enlace">Ordenar</a>
                     <a href="nosotros.html" class="nav-enlace">Nosotros</a>
                     <a href="acceso.php" class="nav-enlace">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-key" width="40" height="40" viewBox="0 0 24 20" stroke-width="2.5" stroke="#ffbf00" fill="none" stroke-linecap="round" stroke-linejoin="round">
