@@ -154,6 +154,15 @@ img{
     padding: 2rem;
 }
 
+/* Vistas */
+.mostrar-seccion{
+    display: block !important;
+}
+
+.seccion{
+    display: none;
+}
+
 /* Orden */
 
 .fondo-titulo{
