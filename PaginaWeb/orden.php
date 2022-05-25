@@ -47,6 +47,34 @@
     <div class="cuenta oculto contenedor" tabindex="0">
         <fieldset>
             <legend>Cuenta</legend>
+            <div class="cuenta-formulario">
+                <div class="cuenta-formulario-empleado">
+                    <label>Mesero</label>
+                    <input class="nombre-mesero" list="empleados" name="empleados">
+                    <datalist id="empleados" class="datalist">
+                    <?php
+                        // Consulta de la base de datos para devolver un datalist de los paises que se pueden elegir
+                        $psql = pg_query($conexion, "SELECT e.nombre FROM empleado e inner join mesero m on e.num_empleado = m.num_empleado");
+                        while($nombre = pg_fetch_row($psql)){
+                            echo "<option value='$nombre[0]'/>";
+                        }
+                    ?>
+                    </datalist>
+                </div>
+                <div class="cuenta-formulario-cliente">
+                    <label>Cliente</label>
+                    <input class="nombre-cliente" list="clientes" name="clientes">
+                    <datalist id="clientes" class="datalist">
+                    <?php
+                        // Consulta de la base de datos para devolver un datalist de los paises que se pueden elegir
+                        $psql = pg_query($conexion, "SELECT nombre FROM cliente");
+                        while($nombre = pg_fetch_row($psql)){
+                            echo "<option value='$nombre[0]'/>";
+                        }
+                    ?>
+                    </datalist>
+                </div>
+            </div>
             <div>
                 <ul class="cuenta-platillo">
                 </ul>
@@ -54,6 +82,7 @@
             <div class="contenedor texto-centro">
                 <h2 class="texto-negro">Total</h2>
                 <p class="cuenta-total"></p>
+                <button onclick="validarOrden()">Confirmar Orden</button>
             </div>
         </fieldset>
     </div>

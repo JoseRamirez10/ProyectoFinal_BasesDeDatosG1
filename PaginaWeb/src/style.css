@@ -186,6 +186,14 @@ img{
 }
 
 /* Cuenta */
+
+.cuenta-formulario{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
 .oculto{
     display: none !important;
 }

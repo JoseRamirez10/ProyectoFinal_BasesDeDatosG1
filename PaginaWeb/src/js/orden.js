@@ -5,6 +5,8 @@ let precioPlatillo = [];
 let totalPlatillo = [];
 let platilloBloqueado = false;
 
+let cuenta = document.querySelector('.cuenta');
+
 document.addEventListener('DOMContentLoaded',function(){
 
     // Se ejecuta cuando el usuario selecciona un empleado
@@ -49,7 +51,6 @@ function obtenerPlatillo(platillo, cantidad){
 }
 
 function mostrarOrden(platillo){
-    let cuenta = document.querySelector('.cuenta');
     cuenta.classList.remove('oculto');
 
     let cuenta_platillo = document.querySelector('.cuenta-platillo');
@@ -66,10 +67,12 @@ function mostrarOrden(platillo){
     detalles_cuenta.appendChild(precio_platillo);
     let orden_platillo = document.createElement('LI');
     orden_platillo.textContent = orden.pop();
+    orden_platillo.classList.add('platillo-ordenado');
     detalles_cuenta.appendChild(orden_platillo);
     let total_platillo = document.createElement('LI');
     let totalPlt = totalPlatillo.pop();
     total_platillo.textContent = totalPlt;
+    total_platillo.classList.add('precio-platillo-ordenado');
     detalles_cuenta.appendChild(total_platillo);
 
     let eliminar = document.createElement('BUTTON');
@@ -82,6 +85,8 @@ function mostrarOrden(platillo){
     
     let total_orden = document.querySelector('.cuenta-total');
     total_orden.textContent = total;
+ 
+    /* Bloquear y desbloquear pedidos */
 
     platilloAgregado();
     totalPlatillosOrdenados++;
@@ -89,6 +94,8 @@ function mostrarOrden(platillo){
     if (totalPlatillosOrdenados == 3){
         bloquearPedido(); 
     }
+
+    /* Eliminar pedidos */
 
     eliminar.onclick = function(){
         contenedor.parentNode.removeChild(contenedor);
@@ -159,4 +166,97 @@ function desbloquearPlatillo(){
         input.disabled = false;
     });
     platilloBloqueado = false;
+}
+
+/* Validando orden */
+
+function validarOrden(){
+
+    let platos = [];
+    let cantidades = [];
+    let preciosTotales = [];
+    let objeto = new Object();
+
+    let mesero = document.querySelector('.nombre-mesero').value;
+    let cliente = document.querySelector('.nombre-cliente').value;
+
+    if(mesero == ''){
+        alert('Tiene que seleccionar un empleado');
+        return;
+    }
+
+    if(cliente == ''){
+        alert('Tiene que seleccionar un cliente');
+        return;
+    }
+
+    platillos = document.querySelectorAll('.platillo-ordenado');
+    platillos.forEach(platillo =>{
+        let arr = platillo.textContent.split(' x ');
+        platos.push(arr[0]);
+        cantidades.push(parseInt(arr[1]));
+    });
+    
+    precios = document.querySelectorAll('.precio-platillo-ordenado');
+    precios.forEach(precio =>{
+        preciosTotales.push((parseInt(precio.textContent)));
+    });
+
+    objeto['platillo'] = platos;
+    objeto['cantidad'] = cantidades;
+    objeto['precio'] = preciosTotales;
+    objeto['total'] = total;
+    objeto['empleado'] = mesero;
+    objeto['cliente'] = cliente;
+
+    $.ajax({ // Manda una solicitud por ajax
+        type: "POST",
+        url: "src/php/validarOrden.php",
+        data: objeto, // Manda el nombre del empleado
+        success: function(response){
+            datos = JSON.parse(response); // Obtiene los datos en json y los transforma
+            console.log(datos);
+            if(datos == 'OK'){
+                ordenConfirmada();
+                setTimeout(function(){
+                    window.open('orden.php','_self');
+                }, 1000);
+            }else{
+                ordenDenegada();
+            }
+        }
+    });
+}
+
+function ordenConfirmada(){
+    document.querySelector('.cuenta').focus();
+    const body = document.querySelector('body');
+    let contenedor = document.createElement('DIV');
+    contenedor.classList.add('texto-centro');
+    let mensaje = document.createElement('h2');
+    mensaje.textContent = 'La orden ha sido procesada con éxito';
+
+    contenedor.appendChild(mensaje)
+    body.appendChild(contenedor);
+    mensaje.classList.add('platillo-confirmacion');
+    
+    setTimeout(function(){
+        body.removeChild(contenedor);
+    }, 1500); // El mensaje desaparece despues de un segundo y medio
+}
+
+function ordenDenegada(){
+    const body = document.querySelector('body');
+    let contenedor = document.createElement('DIV');
+    contenedor.classList.add('texto-centro');
+    let mensaje = document.createElement('h2');
+    mensaje.textContent = 'Su orden ha sido denegada';
+
+    contenedor.appendChild(mensaje)
+    body.appendChild(contenedor);
+    mensaje.classList.add('platillo-eliminado');
+    
+    setTimeout(function(){
+        body.removeChild(contenedor);
+    }, 1500); // El mensaje desaparece despues de un segundo y medio
 }
