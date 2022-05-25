@@ -1,10 +1,10 @@
-/* 
- * Crear base de datos
- */ 
 
-create database restaurant;
+--Crear Base de Datos
+create database restaurantROYJ;
 
-\c restaurant;
+--conectar con la Base de Datos
+\c restaurantROYJ;
+
 
 -- Función que permite calcular la edad
 create or replace function get_age(fecha_nacimiento date) returns int
@@ -43,7 +43,7 @@ create table empleado_telefono(
 	constraint empleado_tel_pk primary key (telefono),
 	constraint emptel_emp_fk foreign key (num_empleado) 
 	references empleado(num_empleado) on delete cascade on update cascade
-	); 
+); 
 
 
 -- Tabla cocinero
@@ -114,7 +114,7 @@ create table orden(
 	folio char(7) not null,
 	num_empleado int not null,
 	rfc_cliente char(13) not null,
-	fecha date not null,
+	fecha date default now(),
 	total money not null,
 	constraint orden_pk primary key (folio),
 	constraint orden_emp_fk foreign key (num_empleado) 
@@ -122,6 +122,7 @@ create table orden(
 	constraint orden_cli_fk foreign key (rfc_cliente) 
 	references cliente(rfc_cliente) on delete cascade on update cascade
 );
+
 
 -- Tabla categoria
 create table categoria(
@@ -135,9 +136,9 @@ create table categoria(
 create table platillo_bebida(
 	nombre_platilloBebida varchar(25) not null,
 	precio money not null,
-	descripcion varchar(150) not null,
-	receta varchar(200) not null,
-	disponibilidad bool not null,
+	descripcion varchar(200) not null,
+	receta varchar(400) not null,
+	disponibilidad int not null,
 	nombre_categoria varchar(15) not null,
 	constraint platilloBeb_pk primary key(nombre_platilloBebida),
 	constraint platBe_cat_fk foreign key(nombre_categoria) 

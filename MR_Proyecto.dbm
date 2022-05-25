@@ -3,8 +3,8 @@
 CAUTION: Do not modify this file unless you know what you are doing.
          Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="0.9.3" use-changelog="false" last-position="0,0" last-zoom="0.75" max-obj-count="13"
-	 default-schema="public" default-owner="postgres">
+<dbmodel pgmodeler-ver="0.9.3" use-changelog="false" last-position="503,301" last-zoom="1" max-obj-count="13"
+	 default-owner="postgres">
 <database name="num_emp" is-template="false" allow-conns="true">
 </database>
 
@@ -149,20 +149,20 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		<type name="money" length="0"/>
 	</column>
 	<column name="descripcion" not-null="true">
-		<type name="varchar" length="150"/>
-	</column>
-	<column name="receta" not-null="true">
 		<type name="varchar" length="200"/>
 	</column>
+	<column name="receta" not-null="true">
+		<type name="varchar" length="400"/>
+	</column>
 	<column name="disponibilidad" not-null="true">
-		<type name="bool" length="0"/>
+		<type name="int2" length="0"/>
 	</column>
 	<constraint name="PLATILLO_BEBIDA_pk" type="pk-constr" table="public.&quot;PLATILLO_BEBIDA&quot;">
 		<columns names="nombre_platilloBebida" ref-type="src-columns"/>
 	</constraint>
 
 	<customidxs object-type="column">
-		<object name="nombre_Categoria_CATEGORIA" index="1"/>
+		<object name="nombre_Categoria_CATEGORIA" index="5"/>
 	</customidxs>
 
 	<customidxs object-type="constraint">
@@ -222,7 +222,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="folio" not-null="true">
 		<type name="char" length="7"/>
 	</column>
-	<column name="fecha" not-null="true">
+	<column name="fecha" not-null="true" default-value="now()">
 		<type name="date" length="0"/>
 	</column>
 	<column name="total" not-null="true">
@@ -233,8 +233,8 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</constraint>
 
 	<customidxs object-type="column">
-		<object name="num_emp_MESERO" index="1"/>
-		<object name="rfc_cliente_CLIENTE" index="2"/>
+		<object name="num_emp_MESERO" index="3"/>
+		<object name="rfc_cliente_CLIENTE" index="4"/>
 	</customidxs>
 
 	<customidxs object-type="constraint">
@@ -339,7 +339,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <table name="ENLISTA" layer="0" collapse-mode="2" max-obj-count="4" z-value="0">
 	<schema name="public"/>
-	<position x="480" y="640"/>
+	<position x="540" y="640"/>
 	<column name="cantidad_platilloBebida" not-null="true">
 		<type name="int2" length="0"/>
 	</column>
@@ -349,39 +349,37 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 	<customidxs object-type="column">
 		<object name="folio_ORDEN" index="1"/>
-		<object name="nombre_platilloBebida_PLATILLO_BEBIDA" index="0"/>
 	</customidxs>
 
 	<customidxs object-type="constraint">
 		<object name="ENLISTA_pk" index="0"/>
 		<object name="ORDEN_fk" index="1"/>
-		<object name="PLATILLO_BEBIDA_fk" index="2"/>
 	</customidxs>
 </table>
 
-<relationship name="enlista" type="rel1n" layer="0"
+<relationship name="enlistaD" type="rel1n" layer="0"
 	 src-col-pattern="{sc}_{st}"
 	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
 	 src-fk-pattern="{st}_fk"
+	 custom-color="#aaaa7f"
 	 src-table="public.&quot;ORDEN&quot;"
 	 dst-table="public.&quot;ENLISTA&quot;"
 	 src-required="true" dst-required="false"
 	 identifier="true"
 >
 	<label ref-type="name-label">
-		<position x="7.30762" y="3.81289"/>
+		<position x="2.30762" y="15.5239"/>
 	</label>
 </relationship>
 
-<relationship name="enlista" type="rel1n" layer="0"
+<relationship name="enlistaI" type="rel1n" layer="0"
 	 src-col-pattern="{sc}_{st}"
 	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
 	 src-fk-pattern="{st}_fk"
+	 custom-color="#aaaa7f"
 	 src-table="public.&quot;PLATILLO_BEBIDA&quot;"
 	 dst-table="public.&quot;ENLISTA&quot;"
-	 src-required="true" dst-required="false"
-	 identifier="true"
-/>
+	 src-required="true" dst-required="false"/>
 
 <constraint name="ADMIN_EMP_fk" type="fk-constr" comparison-type="MATCH FULL"
 	 upd-action="CASCADE" del-action="CASCADE" ref-table="public.&quot;EMPLEADO&quot;" table="public.&quot;ADMINISTRATIVO&quot;">
@@ -401,31 +399,19 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<columns names="num_emp" ref-type="dst-columns"/>
 </constraint>
 
-<relationship name="es" type="relfk" layer="0"
-	 src-table="public.&quot;COCINERO&quot;"
-	 dst-table="public.&quot;EMPLEADO&quot;" reference-fk="COCINERO_EMPLEADO_FK"
-	 src-required="false" dst-required="false">
-	<label ref-type="name-label">
-		<position x="-4.24238" y="0.311639"/>
-	</label>
-</relationship>
-
-<relationship name="es" type="relfk" layer="0"
+<relationship name="&quot;rel_ADMINISTRATIVO_EMPLEADO&quot;" type="relfk" layer="0"
 	 src-table="public.&quot;ADMINISTRATIVO&quot;"
 	 dst-table="public.&quot;EMPLEADO&quot;" reference-fk="ADMIN_EMP_fk"
-	 src-required="false" dst-required="true">
-	<label ref-type="name-label">
-		<position x="84.2072" y="-4.23916"/>
-	</label>
-</relationship>
+	 src-required="false" dst-required="true"/>
 
-<relationship name="es" type="relfk" layer="0"
+<relationship name="&quot;rel_COCINERO_EMPLEADO&quot;" type="relfk" layer="0"
+	 src-table="public.&quot;COCINERO&quot;"
+	 dst-table="public.&quot;EMPLEADO&quot;" reference-fk="COCINERO_EMPLEADO_FK"
+	 src-required="false" dst-required="true"/>
+
+<relationship name="&quot;rel_MESERO_EMPLEADO&quot;" type="relfk" layer="0"
 	 src-table="public.&quot;MESERO&quot;"
 	 dst-table="public.&quot;EMPLEADO&quot;" reference-fk="MES_EMP_fk"
-	 src-required="false" dst-required="true">
-	<label ref-type="name-label">
-		<position x="65.4014" y="7.46774"/>
-	</label>
-</relationship>
+	 src-required="false" dst-required="true"/>
 
 </dbmodel>
