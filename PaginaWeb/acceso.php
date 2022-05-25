@@ -88,7 +88,7 @@
                     </div>
                 </div>
                 <div class="perfil-input foto">
-                    <input class="perfil-foto" name="foto" disabled>
+                    <input class="perfil-foto" type="image" alt="Foto-Empleado" height="300px">
                 </div>
                 <fieldset class="fieldset-direccion">
                     <legend>Dirección</legend>

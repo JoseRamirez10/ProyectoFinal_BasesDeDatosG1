@@ -293,6 +293,10 @@ img{
     width: 100%;
 }
 
+.perfil-foto img{
+    width: 20px;
+}
+
 /* Nosotros */
 
 .nosotros-contenido{

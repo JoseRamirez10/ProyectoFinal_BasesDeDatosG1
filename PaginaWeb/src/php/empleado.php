@@ -17,7 +17,7 @@
         $calle = $resultado[10];
         $num_calle = $resultado[11];
         $sueldo = $resultado[12];
-        $foto = $resultado[13];
+        $foto = pg_unescape_bytea($resultado[13]);
     // forma un array con los datos de la consulta
     $data[] = array('num empleado'=>$num_empleado, 'nombre completo'=>$nombre, 'rfc'=>$rfc, 'fecha nacimiento'=>$fechaNac,'edad'=>$edad, 
                     'estado'=>$estado,'cp'=>$cp,'colonia'=>$colonia,'calle'=>$calle,'num calle'=>$num_calle,'sueldo'=>$sueldo,'foto'=>$foto);

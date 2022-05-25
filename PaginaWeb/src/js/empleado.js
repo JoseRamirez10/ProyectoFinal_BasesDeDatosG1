@@ -46,5 +46,6 @@ function imprimirDatos(datos){
     let sueldo = document.querySelector('.perfil-sueldo');
     sueldo.value = datos[0]['sueldo'];
     let foto = document.querySelector('.perfil-foto');
-    foto.value = datos[0]['foto'];
+    foto.src =  datos[0]['foto'];
+    //foto.value = datos[0]['foto'];
 }
