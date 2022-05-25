@@ -15,11 +15,14 @@ document.addEventListener('DOMContentLoaded',function(){
         platillo = e.target.id; // Obtiene el nombre del platillo
         let datos = $(`#${platillo}`).serializeArray();
         let cantidad = datos[0]['value'];
+        if(platillo.includes("_")){
+            platillo = platillo.replace(/_/g, ' ');
+        }
         if (cantidad == 0){
             errorSeleccion();
         }else{
             obtenerPlatillo(platillo, cantidad);
-        } 
+        }
         
     }); 
 });
@@ -32,6 +35,7 @@ function obtenerPlatillo(platillo, cantidad){
         success: function(response){
             datos = JSON.parse(response); // Obtiene los datos en json y los transforma
             //imprimirDatos(datos); // Imprime los datos en pantalla
+            
             precio = datos[0]['Precio'][0];
             precio = parseFloat(precio.replace('$',''));
             let total_orden_platillo = 0;

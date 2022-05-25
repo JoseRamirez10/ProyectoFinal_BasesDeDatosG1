@@ -90,33 +90,35 @@
     <div class="fondo-menu texto-blanco" id="orden">
         <div class="menu-texto orden">
             <div class="orden-seccion platillo">
+                <!-- Carnes -->
                 <h2 class="texto-centro texto-blanco">Platillos</h2>
-                <h3>Tacos</h3>
+                <h3>Arrachera</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
-                <p class="texto-derecha">$80.00</p>
-                <form id="Tacos" class="orden-seleccion">
+                <p class="texto-derecha">$150.00</p>
+                <form id="Arrachera" class="orden-seleccion">
                     <input type="number" min="0" max="10" name="cantidad" value="0">
                     <input class="informacion" type="submit" value="Agregar" name="submit">
                 </form>
                 <hr>
                 <h3 class="texto-blanco">Hamburguesa</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
-                <p class="texto-derecha">$130.00</p>
+                <p class="texto-derecha">$100.00</p>
                 <form id="Hamburguesa" class="orden-seleccion">
                     <input type="number" min="0" max="10" name="cantidad" value="0">
                     <input class="informacion" type="submit" value="Agregar" name="submit">
                 </form>
                 <hr>
-                <h3 class="texto-blanco">Arrachera</h3>
+                <h3 class="texto-blanco">Pollo al horno</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
                 <p class="texto-derecha">$100.00</p>
-                <form id="Arrachera" class="orden-seleccion">
+                <form id="Pollo_al_horno" class="orden-seleccion">
                     <input type="number" min="0" max="10" name="cantidad" value="0">
                     <input class="informacion" type="submit" value="Agregar" name="submit">
                 </form>
                 <hr>
             </div>
             <div class="orden-seccion bebidas">
+                <!-- Bebidas -->
                 <h2 class="texto-centro texto-blanco">Bebidas</h2>
                 <h3 class="texto-blanco">Limonada</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
