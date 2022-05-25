@@ -89,9 +89,125 @@
 
     <div class="fondo-menu texto-blanco" id="orden">
         <div class="menu-texto orden">
+        <div class="orden-seccion platillo">
+                <!-- Sopas -->
+                <h2 class="texto-centro texto-blanco">Sopas</h2>
+                <h3>Sopa de Cebolla</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                <p class="texto-derecha">$80.00</p>
+                <form id="Sopa_de_Cebolla" class="orden-seleccion">
+                    <input type="number" min="0" max="10" name="cantidad" value="0">
+                    <input class="informacion" type="submit" value="Agregar" name="submit">
+                </form>
+                <hr>
+                <h3 class="texto-blanco">Sopa Gulash</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                <p class="texto-derecha">$100.00</p>
+                <form id="Sopa_Gulash" class="orden-seleccion">
+                    <input type="number" min="0" max="10" name="cantidad" value="0">
+                    <input class="informacion" type="submit" value="Agregar" name="submit">
+                </form>
+                <hr>
+                <h3 class="texto-blanco">Sopa Miso</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                <p class="texto-derecha">$50.00</p>
+                <form id="Sopa_Miso" class="orden-seleccion">
+                    <input type="number" min="0" max="10" name="cantidad" value="0">
+                    <input class="informacion" type="submit" value="Agregar" name="submit">
+                </form>
+                <hr>
+                <h3 class="texto-blanco">Sopa Harina</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                <p class="texto-derecha">$50.00</p>
+                <form id="Sopa_Harina" class="orden-seleccion">
+                    <input type="number" min="0" max="10" name="cantidad" value="0">
+                    <input class="informacion" type="submit" value="Agregar" name="submit">
+                </form>
+                <hr>
+                <h3 class="texto-blanco">Gazpacho</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                <p class="texto-derecha">$50.00</p>
+                <form id="Gazpacho" class="orden-seleccion">
+                    <input type="number" min="0" max="10" name="cantidad" value="0">
+                    <input class="informacion" type="submit" value="Agregar" name="submit">
+                </form>
+                <hr>
+            </div>
+            <div class="orden-seccion platillo">
+                <!-- Pastas -->
+                <h2 class="texto-centro texto-blanco">Pastas</h2>
+                <h3>Espagueti a los Quesos</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                <p class="texto-derecha">$70.00</p>
+                <form id="Espagueti_a_los_Quesos" class="orden-seleccion">
+                    <input type="number" min="0" max="10" name="cantidad" value="0">
+                    <input class="informacion" type="submit" value="Agregar" name="submit">
+                </form>
+                <hr>
+                <h3 class="texto-blanco">Macarrones con Queso</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                <p class="texto-derecha">$50.00</p>
+                <form id="Macarrones_con_Queso" class="orden-seleccion">
+                    <input type="number" min="0" max="10" name="cantidad" value="0">
+                    <input class="informacion" type="submit" value="Agregar" name="submit">
+                </form>
+                <hr>
+                <h3 class="texto-blanco">Fideos con Champiñones</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                <p class="texto-derecha">$70.00</p>
+                <form id="Fideos_con_Champiñones" class="orden-seleccion">
+                    <input type="number" min="0" max="10" name="cantidad" value="0">
+                    <input class="informacion" type="submit" value="Agregar" name="submit">
+                </form>
+                <hr>
+                <h3 class="texto-blanco">Tallarines con Tomates</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                <p class="texto-derecha">$60.00</p>
+                <form id="Tallarines_con_Tomates" class="orden-seleccion">
+                    <input type="number" min="0" max="10" name="cantidad" value="0">
+                    <input class="informacion" type="submit" value="Agregar" name="submit">
+                </form>
+                <hr>
+            </div>
+            <div class="orden-seccion platillo">
+                <!-- Ensaladas -->
+                <h2 class="texto-centro texto-blanco">Ensaladas</h2>
+                <h3>Ensalada César</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                <p class="texto-derecha">$50.00</p>
+                <form id="Ensalada_César" class="orden-seleccion">
+                    <input type="number" min="0" max="10" name="cantidad" value="0">
+                    <input class="informacion" type="submit" value="Agregar" name="submit">
+                </form>
+                <hr>
+                <h3 class="texto-blanco">Ensalada Mixta</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                <p class="texto-derecha">$50.00</p>
+                <form id="Ensalada_Mixta" class="orden-seleccion">
+                    <input type="number" min="0" max="10" name="cantidad" value="0">
+                    <input class="informacion" type="submit" value="Agregar" name="submit">
+                </form>
+                <hr>
+                <h3 class="texto-blanco">Ensalada Waldorf</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                <p class="texto-derecha">$70.00</p>
+                <form id="Ensalada_Waldorf" class="orden-seleccion">
+                    <input type="number" min="0" max="10" name="cantidad" value="0">
+                    <input class="informacion" type="submit" value="Agregar" name="submit">
+                </form>
+                <hr>
+                <h3 class="texto-blanco">Ensalada Griega</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                <p class="texto-derecha">$80.00</p>
+                <form id="Ensalada_Griega" class="orden-seleccion">
+                    <input type="number" min="0" max="10" name="cantidad" value="0">
+                    <input class="informacion" type="submit" value="Agregar" name="submit">
+                </form>
+                <hr>
+            </div>
             <div class="orden-seccion platillo">
                 <!-- Carnes -->
-                <h2 class="texto-centro texto-blanco">Platillos</h2>
+                <h2 class="texto-centro texto-blanco">Carnes</h2>
                 <h3>Arrachera</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
                 <p class="texto-derecha">$150.00</p>
@@ -112,6 +228,122 @@
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
                 <p class="texto-derecha">$100.00</p>
                 <form id="Pollo_al_horno" class="orden-seleccion">
+                    <input type="number" min="0" max="10" name="cantidad" value="0">
+                    <input class="informacion" type="submit" value="Agregar" name="submit">
+                </form>
+                <hr>
+                <h3 class="texto-blanco">Chuleta de cordero</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                <p class="texto-derecha">$200.00</p>
+                <form id="Chuleta_de_cordero" class="orden-seleccion">
+                    <input type="number" min="0" max="10" name="cantidad" value="0">
+                    <input class="informacion" type="submit" value="Agregar" name="submit">
+                </form>
+                <hr>
+            </div>
+            <div class="orden-seccion platillo">
+                <!-- Comida Mexicana -->
+                <h2 class="texto-centro texto-blanco">Comida Mexicana</h2>
+                <h3>Tacos</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                <p class="texto-derecha">$80.00</p>
+                <form id="Tacos" class="orden-seleccion">
+                    <input type="number" min="0" max="10" name="cantidad" value="0">
+                    <input class="informacion" type="submit" value="Agregar" name="submit">
+                </form>
+                <hr>
+                <h3 class="texto-blanco">Mole con Pollo</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                <p class="texto-derecha">$130.00</p>
+                <form id="Mole_con_Pollo" class="orden-seleccion">
+                    <input type="number" min="0" max="10" name="cantidad" value="0">
+                    <input class="informacion" type="submit" value="Agregar" name="submit">
+                </form>
+                <hr>
+                <h3 class="texto-blanco">Cochinita Pibil</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                <p class="texto-derecha">$200.00</p>
+                <form id="Cochinita_Pibil" class="orden-seleccion">
+                    <input type="number" min="0" max="10" name="cantidad" value="0">
+                    <input class="informacion" type="submit" value="Agregar" name="submit">
+                </form>
+                <hr>
+                <h3 class="texto-blanco">Pozole</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                <p class="texto-derecha">$100.00</p>
+                <form id="Pozole" class="orden-seleccion">
+                    <input type="number" min="0" max="10" name="cantidad" value="0">
+                    <input class="informacion" type="submit" value="Agregar" name="submit">
+                </form>
+                <hr>
+            </div>
+            <div class="orden-seccion postres">
+                <!-- Mariscos -->
+                <h2 class="texto-centro texto-blanco">Mariscos</h2>
+                <h3 class="texto-blanco">Salmón al horno</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                <p class="texto-derecha">$500.00</p>
+                <form id="Salmón_al_horno" class="orden-seleccion">
+                    <input type="number" min="0" max="10" name="cantidad" value="0">
+                    <input class="informacion" type="submit" value="Agregar" name="submit">
+                </form>
+                <hr>
+                <h3 class="texto-blanco">Ceviche</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                <p class="texto-derecha">$300.00</p>
+                <form id="Ceviche" class="orden-seleccion">
+                    <input type="number" min="0" max="10" name="cantidad" value="0">
+                    <input class="informacion" type="submit" value="Agregar" name="submit">
+                </form>
+                <hr>
+                <h3 class="texto-blanco">Camarones empanizados</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                <p class="texto-derecha">$200.00</p>
+                <form id="Camarones_empanizados" class="orden-seleccion">
+                    <input type="number" min="0" max="10" name="cantidad" value="0">
+                    <input class="informacion" type="submit" value="Agregar" name="submit">
+                </form>
+                <hr>
+                <h3 class="texto-blanco">Pescado a la mantequilla</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                <p class="texto-derecha">$150.00</p>
+                <form id="Pescado_a_la_mantequilla" class="orden-seleccion">
+                    <input type="number" min="0" max="10" name="cantidad" value="0">
+                    <input class="informacion" type="submit" value="Agregar" name="submit">
+                </form>
+                <hr>
+            </div>
+            <div class="orden-seccion postres">
+                <!-- Postres -->
+                <h2 class="texto-centro texto-blanco">Postres</h2>
+                <h3 class="texto-blanco">Flan</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                <p class="texto-derecha">$50.00</p>
+                <form id="Flan" class="orden-seleccion">
+                    <input type="number" min="0" max="10" name="cantidad" value="0">
+                    <input class="informacion" type="submit" value="Agregar" name="submit">
+                </form>
+                <hr>
+                <h3 class="texto-blanco">Pastel de chocolate</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                <p class="texto-derecha">$50.00</p>
+                <form id="Pastel_de_Chocolate" class="orden-seleccion">
+                    <input type="number" min="0" max="10" name="cantidad" value="0">
+                    <input class="informacion" type="submit" value="Agregar" name="submit">
+                </form>
+                <hr>
+                <h3 class="texto-blanco">Tiramisú</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                <p class="texto-derecha">$100.00</p>
+                <form id="Tiramisú" class="orden-seleccion">
+                    <input type="number" min="0" max="10" name="cantidad" value="0">
+                    <input class="informacion" type="submit" value="Agregar" name="submit">
+                </form>
+                <hr>
+                <h3 class="texto-blanco">Pay de Limón</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                <p class="texto-derecha">$50.00</p>
+                <form id="Pay_de_Limón" class="orden-seleccion">
                     <input type="number" min="0" max="10" name="cantidad" value="0">
                     <input class="informacion" type="submit" value="Agregar" name="submit">
                 </form>
@@ -144,18 +376,15 @@
                     <input class="informacion" type="submit" value="Agregar" name="submit">
                 </form>
                 <hr>
-            </div>
-            <div class="orden-seccion postres">
-                <h2 class="texto-centro texto-blanco">Postres</h2>
-                <h3 class="texto-blanco">Flan</h3>
+                <h3 class="texto-blanco">Café</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
-                <p class="texto-derecha">$50.00</p>
-                <form id="Flan" class="orden-seleccion">
+                <p class="texto-derecha">$15.00</p>
+                <form id="Cafe" class="orden-seleccion">
                     <input type="number" min="0" max="10" name="cantidad" value="0">
                     <input class="informacion" type="submit" value="Agregar" name="submit">
                 </form>
+                <hr>
             </div>
-
         </div>
     </div>
 
