@@ -1,5 +1,4 @@
 :root{
-
     --fuenteHeading: 'PT Sans', sans-serif;
     --fuetenPrincipal: 'MedievalSharp', cursive;
 
@@ -163,6 +162,38 @@ img{
     display: none;
 }
 
+.tabs{
+    display: flex;
+    flex-direction: column;
+}
+
+@media(min-width: 768px){
+    .tabs{
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
+
+.tabs button{
+    margin-top: 1rem;
+    margin-left: 1rem;
+    background-color: var(--blanco);
+    font-size: 1.4rem;
+    font-weight: bold;
+    padding: 1rem;
+    text-align: center;
+    text-transform: uppercase;
+    border: none;
+}
+
+.tabs button:hover{
+    cursor: pointer;
+}
+
+.actual{
+    color: var(--colorHeader);
+}
+
 /* Orden */
 
 .fondo-titulo{
@@ -305,6 +336,11 @@ img{
 .perfil-foto img{
     width: 20px;
 }
+
+.perfil-empleado select{
+    width: 100%;
+}
+
 
 /* Nosotros */
 

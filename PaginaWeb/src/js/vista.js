@@ -10,6 +10,7 @@ function vistas(){
     cambiarSeccion();
 }
 
+// Permite la paginación del menú
 function mostrarSeccion(){
 
     // Eliminar mostrar-seccion de la seccion anterior

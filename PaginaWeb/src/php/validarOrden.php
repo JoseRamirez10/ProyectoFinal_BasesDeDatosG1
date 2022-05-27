@@ -1,6 +1,8 @@
 <?php
 
-    include "conexion.php";
+    include "conexion.php"; // Realiza la conexion a la base de datos
+
+    // Obtiene los diferentes datos del platillo por medio de ajax
     $platillo = $_POST['platillo'];
     $cantidad = $_POST['cantidad'];
     $precio = $_POST['precio'];
@@ -9,10 +11,12 @@
     $cliente = $_POST['cliente'];
     $indice = count($platillo);
 
+    // REaliza la consulta para obtener el numero del empleado
     $consulta_empleado = pg_query($conexion, "SELECT num_empleado FROM empleado WHERE nombre = '$empleado'"); 
     $num_empleado_array = pg_fetch_row($consulta_empleado);
     $num_empleado = (int)$num_empleado_array[0];
 
+    // Reliza una consulta para obtener el rfc del cliente
     $consulta_cliente = pg_query($conexion, "SELECT rfc_cliente FROM cliente WHERE nombre = '$cliente'"); 
     $rfc_cliente_array = pg_fetch_row($consulta_cliente);
     $rfc_cliente = $rfc_cliente_array[0];
@@ -32,7 +36,7 @@
     }
 
     // Insert en tabla orden
-    $insert_orden = "INSERT INTO orden (folio, num_empleado, rfc_cliente, total) values ('$nuevo_folio','$num_empleado','$rfc_cliente', '$total')";
+    $insert_orden = "INSERT INTO orden (folio, num_empleado, rfc_cliente, total) values ('$nuevo_folio','$num_empleado','$rfc_cliente',0)";
     $resultado = pg_query($conexion, $insert_orden);
 
     // Insert en tabla enlista
@@ -40,6 +44,7 @@
         $insert_enlista = "INSERT INTO enlista values ('$nuevo_folio', '$platillo[$i]', '$cantidad[$i]','$precio[$i]')";
         $resultado = pg_query($conexion, $insert_enlista);
     }
+    // mensaje de confirmación para javascript
     $confirmacion = "OK";
     echo json_encode($confirmacion);
 ?>

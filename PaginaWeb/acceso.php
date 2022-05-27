@@ -8,6 +8,8 @@
 
     <link rel="preload" href="src/style.css" as="style">
     <link rel="stylesheet" href="src/style.css">
+
+    <link rel="icon" href="img/favicon.png">
 </head>
 <?php
     include "src/php/conexion.php" // Conexion a la base de datos
@@ -43,16 +45,17 @@
     <form class="contendor" id="empleado">
         <div class="empleado empleado-form">
             <label>Empleado</label>
-            <input class="perfil-empleado" list="empleados" name="empleados">
-            <datalist id="empleados" class="datalist">
+            <select class="perfil-empleado"  name="empleados">
+            <!-- <datalist id="empleados" class="datalist"> list="empleados"-->
             <?php
                 // Consulta de la base de datos para devolver un datalist de los paises que se pueden elegir
                 $psql = pg_query($conexion, "SELECT nombre FROM empleado");
                 while($nombre = pg_fetch_row($psql)){
-                    echo "<option value='$nombre[0]'/>";
+                    echo "<option value='$nombre[0]'>$nombre[0]</option>";
                 }
             ?>
-            </datalist>
+            </select>
+            <!-- </datalist> -->
         </div>
         <input class="submit" type="submit" name="Buscar">
     </form>

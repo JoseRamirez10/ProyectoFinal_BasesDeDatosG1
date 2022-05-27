@@ -8,6 +8,8 @@
 
     <link rel="preload" href="src/style.css" as="style">
     <link rel="stylesheet" href="src/style.css">
+
+    <link rel="icon" href="img/favicon.png">
 </head>
 <?php
     include "src/php/conexion.php" // Conexion a la base de datos
@@ -50,29 +52,27 @@
             <div class="cuenta-formulario">
                 <div class="cuenta-formulario-empleado">
                     <label>Mesero</label>
-                    <input class="nombre-mesero" list="empleados" name="empleados">
-                    <datalist id="empleados" class="datalist">
+                    <select class="nombre-mesero" name="empleados">
                     <?php
                         // Consulta de la base de datos para devolver un datalist de los paises que se pueden elegir
                         $psql = pg_query($conexion, "SELECT e.nombre FROM empleado e inner join mesero m on e.num_empleado = m.num_empleado");
                         while($nombre = pg_fetch_row($psql)){
-                            echo "<option value='$nombre[0]'/>";
+                            echo "<option value='$nombre[0]'>$nombre[0]</option>";
                         }
                     ?>
-                    </datalist>
+                    </select>
                 </div>
                 <div class="cuenta-formulario-cliente">
                     <label>Cliente</label>
-                    <input class="nombre-cliente" list="clientes" name="clientes">
-                    <datalist id="clientes" class="datalist">
+                    <select class="nombre-cliente" name="clientes">
                     <?php
                         // Consulta de la base de datos para devolver un datalist de los paises que se pueden elegir
                         $psql = pg_query($conexion, "SELECT nombre FROM cliente");
                         while($nombre = pg_fetch_row($psql)){
-                            echo "<option value='$nombre[0]'/>";
+                            echo "<option value='$nombre[0]'>$nombre[0]</option>";
                         }
                     ?>
-                    </datalist>
+                    </select>
                 </div>
             </div>
             <div>
@@ -93,13 +93,14 @@
             <button type="button" data-paso="2">Carnes, Comida Mexicana y Mariscos</button>
             <button type="button" data-paso="3">Bebidas y Postres</button>
         </nav>
+        <hr>
         <div id="paso-1" class="menu-texto seccion">
             <div class="orden">
                 <div class="orden-seccion platillo">
                         <!-- Sopas -->
                         <h2 class="texto-centro texto-blanco">Sopas</h2>
                         <h3>Sopa de Cebolla</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                        <p>Platillo francés cuyo principal ingrediente es la cebolla caramelizada, acompañada de pan y especias.</p>
                         <p class="texto-derecha">$80.00</p>
                         <form id="Sopa_de_Cebolla" class="orden-seleccion">
                             <input type="number" min="0" max="10" name="cantidad" value="0">
@@ -107,7 +108,7 @@
                         </form>
                         <hr>
                         <h3 class="texto-blanco">Sopa Gulash</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                        <p>Plato húngaro elaborado principalmente con carne, cebollas, pimiento y pimentón.</p>
                         <p class="texto-derecha">$100.00</p>
                         <form id="Sopa_Gulash" class="orden-seleccion">
                             <input type="number" min="0" max="10" name="cantidad" value="0">
@@ -115,7 +116,7 @@
                         </form>
                         <hr>
                         <h3 class="texto-blanco">Sopa Miso</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                        <p>La sopa de Miso es una sopa japonesa preparada a base de un caldo Dashi y pasta de miso, que le da nombre.</p>
                         <p class="texto-derecha">$50.00</p>
                         <form id="Sopa_Miso" class="orden-seleccion">
                             <input type="number" min="0" max="10" name="cantidad" value="0">
@@ -123,7 +124,7 @@
                         </form>
                         <hr>
                         <h3 class="texto-blanco">Sopa Harina</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                        <p>Sopa tradicional europea hecha de legumbres, carne y tomate.</p>
                         <p class="texto-derecha">$50.00</p>
                         <form id="Sopa_Harina" class="orden-seleccion">
                             <input type="number" min="0" max="10" name="cantidad" value="0">
@@ -131,7 +132,7 @@
                         </form>
                         <hr>
                         <h3 class="texto-blanco">Gazpacho</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                        <p>Sopa refrescante elaborada inicialmente con miga de pan seco, ajo, vinagre, aceite y agua a la que posteriormente se incorporó jitomate, pimiento y pepino.</p>
                         <p class="texto-derecha">$50.00</p>
                         <form id="Gazpacho" class="orden-seleccion">
                             <input type="number" min="0" max="10" name="cantidad" value="0">
@@ -143,7 +144,7 @@
                         <!-- Pastas -->
                         <h2 class="texto-centro texto-blanco">Pastas</h2>
                         <h3>Espagueti a los Quesos</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                        <p>Espagueti bañado en una salsa cremosa hecha con una combinación tres quesos.</p>
                         <p class="texto-derecha">$70.00</p>
                         <form id="Espagueti_a_los_Quesos" class="orden-seleccion">
                             <input type="number" min="0" max="10" name="cantidad" value="0">
@@ -151,7 +152,7 @@
                         </form>
                         <hr>
                         <h3 class="texto-blanco">Macarrones con Queso</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                        <p>Exquisitos macarrones bañados en salsa de queso.</p>
                         <p class="texto-derecha">$50.00</p>
                         <form id="Macarrones_con_Queso" class="orden-seleccion">
                             <input type="number" min="0" max="10" name="cantidad" value="0">
@@ -159,7 +160,7 @@
                         </form>
                         <hr>
                         <h3 class="texto-blanco">Fideos con Champiñones</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                        <p>Cremosos fideos acompañados de Champiñones.</p>
                         <p class="texto-derecha">$70.00</p>
                         <form id="Fideos_con_Champiñones" class="orden-seleccion">
                             <input type="number" min="0" max="10" name="cantidad" value="0">
@@ -167,7 +168,7 @@
                         </form>
                         <hr>
                         <h3 class="texto-blanco">Tallarines con Tomates</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                        <p>Deliciosos tallarines bañados en una salsa de tomate y queso.</p>
                         <p class="texto-derecha">$60.00</p>
                         <form id="Tallarines_con_Tomates" class="orden-seleccion">
                             <input type="number" min="0" max="10" name="cantidad" value="0">
@@ -179,7 +180,7 @@
                         <!-- Ensaladas -->
                         <h2 class="texto-centro texto-blanco">Ensaladas</h2>
                         <h3>Ensalada César</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                        <p>Ensalada de lechuga romana y trozos de pan tostado con jugo de limón, aceite de oliva, huevo, salsa Worcestershire, ajo, mostaza, queso parmesano y pimienta negra.</p>
                         <p class="texto-derecha">$50.00</p>
                         <form id="Ensalada_César" class="orden-seleccion">
                             <input type="number" min="0" max="10" name="cantidad" value="0">
@@ -187,7 +188,7 @@
                         </form>
                         <hr>
                         <h3 class="texto-blanco">Ensalada Mixta</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                        <p>Platillo frío elaborado con pollo, lechuga y jitomate en rodajas; opcionalmente aguacate rebanado, zanahoria y alguna otra verdura a elección.</p>
                         <p class="texto-derecha">$50.00</p>
                         <form id="Ensalada_Mixta" class="orden-seleccion">
                             <input type="number" min="0" max="10" name="cantidad" value="0">
@@ -195,7 +196,7 @@
                         </form>
                         <hr>
                         <h3 class="texto-blanco">Ensalada Waldorf</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                        <p>Ensalada elaborada con manzana, apio, nueces y se adereza con mayonesa y limón.</p>
                         <p class="texto-derecha">$70.00</p>
                         <form id="Ensalada_Waldorf" class="orden-seleccion">
                             <input type="number" min="0" max="10" name="cantidad" value="0">
@@ -203,7 +204,7 @@
                         </form>
                         <hr>
                         <h3 class="texto-blanco">Ensalada Griega</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                        <p>Ensalada elaborada con tomate, pepino, cebolla, pimiento, aceitunas negras y aceite de oliva.</p>
                         <p class="texto-derecha">$80.00</p>
                         <form id="Ensalada_Griega" class="orden-seleccion">
                             <input type="number" min="0" max="10" name="cantidad" value="0">
@@ -219,7 +220,7 @@
                         <!-- Carnes -->
                         <h2 class="texto-centro texto-blanco">Carnes</h2>
                         <h3>Arrachera</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                        <p>Corte fino de res de 45 cm de largo y un grueso de un centímetro aproximadamente.</p>
                         <p class="texto-derecha">$150.00</p>
                         <form id="Arrachera" class="orden-seleccion">
                             <input type="number" min="0" max="10" name="cantidad" value="0">
@@ -227,7 +228,7 @@
                         </form>
                         <hr>
                         <h3 class="texto-blanco">Hamburguesa</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                        <p>Platillo tipo sándwich hecho a base de carne de res molida, aglutinada en forma de filete cocinado a la parrilla, acompañada de papas fritas.</p>
                         <p class="texto-derecha">$100.00</p>
                         <form id="Hamburguesa" class="orden-seleccion">
                             <input type="number" min="0" max="10" name="cantidad" value="0">
@@ -235,7 +236,7 @@
                         </form>
                         <hr>
                         <h3 class="texto-blanco">Pollo al horno</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                        <p>Pollo cocinado en sus propios jugos y grasa, acompañado o aderezado con hierbas aromáticas y vegetales.</p>
                         <p class="texto-derecha">$100.00</p>
                         <form id="Pollo_al_horno" class="orden-seleccion">
                             <input type="number" min="0" max="10" name="cantidad" value="0">
@@ -243,7 +244,7 @@
                         </form>
                         <hr>
                         <h3 class="texto-blanco">Chuleta de cordero</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                        <p>Pollo cocinado en sus propios jugos y grasa, acompañado o aderezado con hierbas aromáticas y vegetales.</p>
                         <p class="texto-derecha">$200.00</p>
                         <form id="Chuleta_de_cordero" class="orden-seleccion">
                             <input type="number" min="0" max="10" name="cantidad" value="0">
@@ -255,7 +256,7 @@
                         <!-- Comida Mexicana -->
                         <h2 class="texto-centro texto-blanco">Comida Mexicana</h2>
                         <h3>Tacos</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                        <p>Cinco piezas de deliciosos tacos de suadero.</p>
                         <p class="texto-derecha">$80.00</p>
                         <form id="Tacos" class="orden-seleccion">
                             <input type="number" min="0" max="10" name="cantidad" value="0">
@@ -263,7 +264,7 @@
                         </form>
                         <hr>
                         <h3 class="texto-blanco">Mole con Pollo</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                        <p>Pollo bañado en salsa espesa echa a base de chocolates, chiles y especias.</p>
                         <p class="texto-derecha">$130.00</p>
                         <form id="Mole_con_Pollo" class="orden-seleccion">
                             <input type="number" min="0" max="10" name="cantidad" value="0">
@@ -271,7 +272,7 @@
                         </form>
                         <hr>
                         <h3 class="texto-blanco">Cochinita Pibil</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                        <p>Platillo basado en carne de cerdo marinada en una preparación con achiote y cocida al horno.</p>
                         <p class="texto-derecha">$200.00</p>
                         <form id="Cochinita_Pibil" class="orden-seleccion">
                             <input type="number" min="0" max="10" name="cantidad" value="0">
@@ -279,7 +280,7 @@
                         </form>
                         <hr>
                         <h3 class="texto-blanco">Pozole</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                        <p>Platillo a base de granos de maíz nixtamalizados y carne de res.</p>
                         <p class="texto-derecha">$100.00</p>
                         <form id="Pozole" class="orden-seleccion">
                             <input type="number" min="0" max="10" name="cantidad" value="0">
@@ -291,7 +292,7 @@
                         <!-- Mariscos -->
                         <h2 class="texto-centro texto-blanco">Mariscos</h2>
                         <h3 class="texto-blanco">Salmón al horno</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                        <p>Delicioso salmón cocinado al horno acompañado de pure de papas.</p>
                         <p class="texto-derecha">$500.00</p>
                         <form id="Salmón_al_horno" class="orden-seleccion">
                             <input type="number" min="0" max="10" name="cantidad" value="0">
@@ -299,7 +300,7 @@
                         </form>
                         <hr>
                         <h3 class="texto-blanco">Ceviche</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                        <p>Platillo preparado con trozos de pescado crudo, marinados en jugo de limón u otro líquido ácido y condimentado con otros ingredientes.</p>
                         <p class="texto-derecha">$300.00</p>
                         <form id="Ceviche" class="orden-seleccion">
                             <input type="number" min="0" max="10" name="cantidad" value="0">
@@ -307,7 +308,7 @@
                         </form>
                         <hr>
                         <h3 class="texto-blanco">Camarones empanizados</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                        <p>Ocho piezas de camarones empanizados crujientes acompañados de una salsa para mojar.</p>
                         <p class="texto-derecha">$200.00</p>
                         <form id="Camarones_empanizados" class="orden-seleccion">
                             <input type="number" min="0" max="10" name="cantidad" value="0">
@@ -315,7 +316,7 @@
                         </form>
                         <hr>
                         <h3 class="texto-blanco">Pescado a la mantequilla</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                        <p>Filetes de pescado fritos con mantequilla acompañados de verdura.</p>
                         <p class="texto-derecha">$150.00</p>
                         <form id="Pescado_a_la_mantequilla" class="orden-seleccion">
                             <input type="number" min="0" max="10" name="cantidad" value="0">
@@ -331,7 +332,7 @@
                         <!-- Postres -->
                         <h2 class="texto-centro texto-blanco">Postres</h2>
                         <h3 class="texto-blanco">Flan</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                        <p>Postre elaborado con una natilla, teniendo como ingredientes principales huevos enteros, leche y azúcar.</p>
                         <p class="texto-derecha">$50.00</p>
                         <form id="Flan" class="orden-seleccion">
                             <input type="number" min="0" max="10" name="cantidad" value="0">
@@ -339,7 +340,7 @@
                         </form>
                         <hr>
                         <h3 class="texto-blanco">Pastel de chocolate</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                        <p>Rebanada de delicioso pastel sabor chocolate.</p>
                         <p class="texto-derecha">$50.00</p>
                         <form id="Pastel_de_Chocolate" class="orden-seleccion">
                             <input type="number" min="0" max="10" name="cantidad" value="0">
@@ -347,7 +348,7 @@
                         </form>
                         <hr>
                         <h3 class="texto-blanco">Tiramisú</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                        <p>Postre que se prepara con láminas de masa de bizcocho empapadas en café.</p>
                         <p class="texto-derecha">$100.00</p>
                         <form id="Tiramisú" class="orden-seleccion">
                             <input type="number" min="0" max="10" name="cantidad" value="0">
@@ -355,7 +356,7 @@
                         </form>
                         <hr>
                         <h3 class="texto-blanco">Pay de Limón</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                        <p>Rebanada de delicioso Pay de Limón.</p>
                         <p class="texto-derecha">$50.00</p>
                         <form id="Pay_de_Limón" class="orden-seleccion">
                             <input type="number" min="0" max="10" name="cantidad" value="0">
@@ -367,7 +368,7 @@
                         <!-- Bebidas -->
                         <h2 class="texto-centro texto-blanco">Bebidas</h2>
                         <h3 class="texto-blanco">Limonada</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                        <p>Bebida refrescante elaborada con agua natural o mineral, azúcar y jugo de limón.</p>
                         <p class="texto-derecha">$30.00</p>
                         <form id="Limonada" class="orden-seleccion">
                             <input type="number" min="0" max="10" name="cantidad" value="0">
@@ -375,7 +376,7 @@
                         </form>
                         <hr>
                         <h3 class="texto-blanco">Cerveza</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                        <p>Bebida alcohólica elaborada a partir de azúcares obtenidas de cereales y otros granos.</p>
                         <p class="texto-derecha">$20.00</p>
                         <form id="Cerveza" class="orden-seleccion">
                             <input type="number" min="0" max="10" name="cantidad" value="0">
@@ -383,7 +384,7 @@
                         </form>
                         <hr>
                         <h3 class="texto-blanco">Soda</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                        <p>Bebida gaseosa de diversos sabores y sin alcohol, elaborada con agua y ácido carbónico.</p>
                         <p class="texto-derecha">$15.00</p>
                         <form id="Soda" class="orden-seleccion">
                             <input type="number" min="0" max="10" name="cantidad" value="0">
@@ -391,7 +392,7 @@
                         </form>
                         <hr>
                         <h3 class="texto-blanco">Café</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates accusamus earum quasi nesciunt architecto perspiciatis possimus nostrum ab, minus error! Placeat quae, nostrum cupiditate magnam repudiandae fuga molestiae doloribus?</p>
+                        <p>Bebida que se obtiene a partir de los granos tostados y molidos de los frutos de la planta del café, tipo americano o cappuccino.</p>
                         <p class="texto-derecha">$15.00</p>
                         <form id="Cafe" class="orden-seleccion">
                             <input type="number" min="0" max="10" name="cantidad" value="0">

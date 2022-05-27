@@ -1,8 +1,9 @@
 <?php
-// Obtiene el empleado que obtiene de ajax
+// Obtiene el empleado el nombre del empleado por medio de ajax
     $empleado =  $_POST['empleado'];
     include "conexion.php"; // Realiza la conexion a la base de datos
 
+    // Realiza la consulta a la base de datos
     $psql = pg_query($conexion, "SELECT * FROM empleado where nombre = '$empleado'");
     $data = array();
     $resultado = pg_fetch_row($psql); // Obtiene los datos de la consulta

@@ -9,19 +9,19 @@ let cuenta = document.querySelector('.cuenta');
 
 document.addEventListener('DOMContentLoaded',function(){
 
-    // Se ejecuta cuando el usuario selecciona un empleado
+    // Se ejecuta cuando el usuario selecciona un platillo
     $('#orden').submit(function (e){
         e.preventDefault(); // Previene el evento
         platillo = e.target.id; // Obtiene el nombre del platillo
         let datos = $(`#${platillo}`).serializeArray();
-        let cantidad = datos[0]['value'];
+        let cantidad = datos[0]['value']; // Obtiene la cantidad seleccionada
         if(platillo.includes("_")){
             platillo = platillo.replace(/_/g, ' ');
-        }
+        } 
         if (cantidad == 0){
-            errorSeleccion();
+            errorSeleccion(); // No se pueden agregar 0 platillos
         }else{
-            obtenerPlatillo(platillo, cantidad);
+            obtenerPlatillo(platillo, cantidad); // Obtiene el platillo y el precio de la base de datos
         }
         
     }); 
@@ -31,29 +31,30 @@ function obtenerPlatillo(platillo, cantidad){
     $.ajax({ // Manda una solicitud por ajax
         type: "POST",
         url: "src/php/orden.php",
-        data: 'platillo='+platillo, // Manda el nombre del empleado
+        data: 'platillo='+platillo, // Manda el nombre del platillo
         success: function(response){
             datos = JSON.parse(response); // Obtiene los datos en json y los transforma
-            //imprimirDatos(datos); // Imprime los datos en pantalla
             
-            precio = datos[0]['Precio'][0];
+            precio = datos[0]['Precio'][0]; // Obtiene el precio de un pltatillo
             precio = parseFloat(precio.replace('$',''));
             let total_orden_platillo = 0;
             for(i = 0; i < cantidad;i++){
-                total_orden_platillo += precio;
+                total_orden_platillo += precio; // Obtiene el precio de la cantidad del platillo
             }
             
+            // Arrays de apoyo para guardar los datos
             total+=total_orden_platillo;
             precioPlatillo.push(platillo+' = '+precio)
             orden.push(platillo+' x '+cantidad);
             totalPlatillo.push(total_orden_platillo);
 
-            mostrarOrden(platillo);
+            mostrarOrden(platillo); // Muestra la orden en el html
             
         }
     });
 }
 
+// Genera todo el contenido en html para mostrar la orden
 function mostrarOrden(platillo){
     cuenta.classList.remove('oculto');
 
@@ -89,26 +90,31 @@ function mostrarOrden(platillo){
     
     let total_orden = document.querySelector('.cuenta-total');
     total_orden.textContent = total;
+
+    // Bloquea el platillo que acaba de ser agregado
+    bloquearPlatillo(platillo);
  
     /* Bloquear y desbloquear pedidos */
 
     platilloAgregado();
     totalPlatillosOrdenados++;
 
+    // Solo se pueden agregar 3 platillos
     if (totalPlatillosOrdenados == 3){
         bloquearPedido(); 
     }
 
     /* Eliminar pedidos */
-
     eliminar.onclick = function(){
         contenedor.parentNode.removeChild(contenedor);
         total = total - totalPlt;
         total_orden.textContent = total;
         platilloEliminado();
 
+        desbloquearPlatillo(platillo);
+
         if(platilloBloqueado){
-            desbloquearPlatillo();
+            desbloquearPedido();
         }
        
         totalPlatillosOrdenados--;
@@ -118,12 +124,13 @@ function mostrarOrden(platillo){
     };
 }
 
+// Si la cantidad de un platillo es igual a 0
 function errorSeleccion(){
     alert('La cantidad del platillo seleccionado no puede ser 0.');
 }
 
+// Confirmacion de que el platillo se agregó correctamente
 function platilloAgregado(){
-
     document.querySelector('.cuenta').focus();
     const body = document.querySelector('body');
     let contenedor = document.createElement('DIV');
@@ -140,6 +147,7 @@ function platilloAgregado(){
     }, 1500); // El mensaje desaparece despues de un segundo y medio
 }
 
+// Confirmación de que un platillo se eliminó correctamente
 function platilloEliminado(){
     const body = document.querySelector('body');
     let contenedor = document.createElement('DIV');
@@ -164,7 +172,7 @@ function bloquearPedido(){
     platilloBloqueado = true;
 }
 
-function desbloquearPlatillo(){
+function desbloquearPedido(){
     inputs = document.querySelectorAll('.informacion');
     inputs.forEach(input => {
         input.disabled = false;
@@ -172,8 +180,23 @@ function desbloquearPlatillo(){
     platilloBloqueado = false;
 }
 
-/* Validando orden */
+function bloquearPlatillo(platillo){
+    if(platillo.includes(" ")){
+        platillo = platillo.replace(/ /g, '_');
+    }
+    plato = document.querySelector(`#${platillo} .informacion`);
+    plato.disabled = true;
+}
 
+function desbloquearPlatillo(platillo){
+    if(platillo.includes(" ")){
+        platillo = platillo.replace(/ /g, '_');
+    }
+    plato = document.querySelector(`#${platillo} .informacion`);
+    plato.disabled = false;
+}
+
+/* Validando orden */
 function validarOrden(){
 
     let platos = [];
@@ -216,7 +239,7 @@ function validarOrden(){
     $.ajax({ // Manda una solicitud por ajax
         type: "POST",
         url: "src/php/validarOrden.php",
-        data: objeto, // Manda el nombre del empleado
+        data: objeto, // Manda el objeto de los datos del platillo
         success: function(response){
             datos = JSON.parse(response); // Obtiene los datos en json y los transforma
             console.log(datos);
