@@ -1,7 +1,5 @@
 /* Inserts */
 
-
-
 --Agregado de información a la tabla empleado
 insert into empleado(num_empleado,nombre,apellido_pat,apellido_mat,rfc_emp,fecha_nacimiento,estado,cp,colonia,calle,numero_calle,sueldo,foto) 
 values (1,'Alex','Sanchez','Vega','SAVA8305217U5','1983-11-02','CDMX',14678,'San Rafael','Hidalgo',26,3000,'img/fotosEmpleados/1.jpg');
@@ -71,7 +69,7 @@ values (22,'Aitor','Yute','Berrocal','YUBA8602145Q6','1989-02-14','CDMX',57924,'
 
 
 
---Agregado de información a la tabla empleado
+--Agregado de información a la tabla empleado_telefono
 insert into empleado_telefono values(5564827809,1);
 insert into empleado_telefono values(5589457892,2);
 insert into empleado_telefono values(5578458900,3);
@@ -138,7 +136,7 @@ insert into dependiente values('DIML770826MCHZRN93',2,'Madre','Luna','Diaz','Mor
 insert into dependiente values('PEDJ77505MCXRLN748',3,'Esposa','Juana','Soto','Delgado');
 insert into dependiente values('AUSM990610MMCGTR04',3,'Hijo','Martin','Aguilar','Soto');
 insert into dependiente values('GOHL030410MPLNRZA8',4,'Hija','Luz','Gonzales','Hernandez');
-insert into dependiente values('HEJR72118HOCRMÚ835',4,'Padre','Raul','Hernandez','Jimenez');
+insert into dependiente values('HEJR72118HOCRMU835',4,'Padre','Raul','Hernandez','Jimenez');
 insert into dependiente values('RODL811125MDFCZR00',6,'Esposa','Laura','Rocha','Diaz');
 insert into dependiente values('VARP000625MDFZCLA7',6,'Hija','Paula','Vazquez','Rocha');
 insert into dependiente values('FOVJ801217HCMLGN36',7,'Esposo','Juan Carlos','Flores','Vega');
@@ -164,10 +162,10 @@ insert into dependiente values('RECF061214MPLYLRY2',17,'Hija','Francisca','Reyes
 insert into dependiente values('MEGY86615MNLDZL119',18,'Esposa','Yolanda','Medina','Guzman');
 insert into dependiente values('MAGJ80131MCLRRS256',18,'Madre','Josefina','Mariscal','Garza');
 insert into dependiente values('AAVR87812MCXZGM238',19,'Hermana','Ramona','Aznar','Vega');
-insert into dependiente values('AAVÁ911030HMCZGN74',19,'Hermano','Angel','Aznar','Vega');
+insert into dependiente values('AAVA911030HMCZGN74',19,'Hermano','Angel','Aznar','Vega');
 insert into dependiente values('DIDS870826MTLZLL35',20,'Conyuge','Silvia','Dorante','Diaz');
 insert into dependiente values('RODL75412HMCMLS848',20,'Padre','Luis','Romero','Delgado');
-insert into dependiente values('GOCM74729MCXÑHR928',20,'Madre','Margarita','Goñi','Chavez');
+insert into dependiente values('GOCM74729MCXNHR928',20,'Madre','Margarita','Goñi','Chavez');
 insert into dependiente values('YUBC9548MCXTRRP678',22,'Hermana','Carmen','Yute','Berrocal');
 
 
@@ -390,12 +388,3 @@ insert into enlista values('ORD-014','Cerveza',4,80);
 insert into enlista values('ORD-014','Flan',1,50);
 insert into enlista values('ORD-014','Tiramisú',1,100);
 insert into enlista values('ORD-014','Limonada',2,60);
-
-
-
-
-
-
-
-
-

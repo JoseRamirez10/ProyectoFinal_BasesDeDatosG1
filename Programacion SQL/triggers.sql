@@ -9,11 +9,11 @@ after insert on enlista
 for each row
 execute procedure fn_act_disp_total();
 
+
 --Trigger que evalua si el producto esta disponible, asi como si la orden existe
 create or replace trigger trg_verificar_disp_producto 
 before insert on enlista
 for each row
 execute procedure fn_verificar_disp_producto();
-
 
 

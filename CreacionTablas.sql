@@ -1,9 +1,9 @@
 
 --Crear Base de Datos
-create database restaurantROYJ;
+create database proyectoequipobd;
 
---conectar con la Base de Datos
-\c restaurantROYJ;
+--Conectar con la Base de Datos
+\c proyectoequipobd;
 
 
 -- Función que permite calcular la edad
