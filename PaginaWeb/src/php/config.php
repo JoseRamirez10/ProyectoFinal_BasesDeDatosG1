@@ -5,6 +5,6 @@
 $server = "host=localhost ";
 $username = "user=jozfama ";
 $password = "password= ";
-$dbname = "dbname=restaurant3 ";
+$dbname = "dbname=proyectoequipobd ";
 $post = $server . $dbname . $username . $password;
 ?>
