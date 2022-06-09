@@ -109,6 +109,9 @@ end;
 $$
 language plpgsql;
 
+select m.num_empleado from empleado e join mesero m on e.num_empleado = m.num_empleado;
+select fn_ordenes_empleado(2);
+
 --Vista que muestre todos los detalles del platillo mas vendido
 create or replace view vista_platillo_mas_vendido(nombre,precio,descripcion,receta,
 disponibilidad,categoria) as
@@ -125,6 +128,9 @@ disponibilidad,categoria) as
 	) sbn
 	group by pb.nombre_platillobebida,sbn.maximo
 	having sum(e.cantidad_platillobebida)=sbn.maximo;
+
+select * from vista_platillo_mas_vendido;
+select nombre_platillobebida ,count(*) as total from enlista group by nombre_platilloBebida order by 2; 
 	
 --Permitir obtener el nombre de aquellos productos que no esten disponibles.
 create or replace function fn_prod_no_disp(producto_no_disponible out varchar)
@@ -144,6 +150,9 @@ end;
 $$
 language plpgsql;
 
+select fn_prod_no_disp();
+select nombre_platilloBebida, disponibilidad from platillo_bebida where disponibilidad = 0;
+
 --De manera automatica se genere una vista que contenga 
 --información necesaria para asemejarse a una factura de una orden
 --Funcion que devuelve lo que devolveria una vista, dada una orden.
@@ -161,6 +170,9 @@ begin
 end;
 $$
 language plpgsql;
+
+select fn_vista_factura_orden('ORD-002');
+select * from fn_vista_factura_orden('ORD-015');
 
 --Dada una fecha, o una fecha de inicio y fecha de fin, regresar el total del
 --número de ventas y el monto total por las ventas en ese periodo de tiempo.
@@ -196,3 +208,9 @@ begin
 end;
 $$
 language plpgsql;
+
+
+select * from fn_ventas_intervalo('01-06-2022','01-06-2022');
+
+select fecha, count(*) from orden group by fecha;
+

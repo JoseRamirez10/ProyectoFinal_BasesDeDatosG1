@@ -107,7 +107,7 @@ create table cliente(
 	numero_calle int not null,
 	constraint cliente_pk primary key (rfc_cliente)
 );
-
+insert into cliente values('PROFESOR', 'Jose', 'Ramirez', 'Gonzalez', 'jose@gmail.com', 'PROYECTO FINAL', '1997-12-15', 'Mexico', 56440, 'La paz', 'Pariam', 2);
 
 -- Tabla orden (ORD-001)
 create table orden(
@@ -122,6 +122,10 @@ create table orden(
 	constraint orden_cli_fk foreign key (rfc_cliente) 
 	references cliente(rfc_cliente) on delete cascade on update cascade
 );
+
+insert into orden values ('ORD-016', 10, 'PROFESO', now(), 0); 
+select * from orden;
+select * from cliente;
 
 
 -- Tabla categoria
@@ -145,6 +149,7 @@ create table platillo_bebida(
 	references categoria(nombre_categoria) on delete cascade on update cascade
 );
 
+select * from platillo_bebida;
 
 -- Tabla enlista (orden-platillo)
 create table enlista(
@@ -158,3 +163,11 @@ create table enlista(
 	constraint enlista_nomPB foreign key(nombre_platilloBebida)
 	references platillo_bebida(nombre_platilloBebida) on delete cascade on update cascade
 );
+
+select * from enlista;
+select * from orden;
+update enlista set cantidad_platilloBebida = 2 where folio = 'ORD-015' and nombre_platilloBebida = 'Arrachera';
+
+insert into enlista values ('ORD-015', 'Arrachera', 1, 150);
+insert into enlista values ('ORD-015', 'Soda', 2, 10);
+insert into enlista values ('ORD-015', 'Ensalada Mixta', 5, 80);
